@@ -52,7 +52,11 @@ public class MyDomParserForCompanyXML extends MyDomParser{
      */
     public List<String> getAllNickNamesFromCompanyOne() throws MyDomParserException{
         ArrayList<String> list = new ArrayList<String>();
-        if (doc != null){            
+        if (doc != null){    
+            NodeList elementsByTagName = doc.getElementsByTagName("company");
+            for(int i = 0 ; elementsByTagName.getLength() < i ; i++){
+                System.out.println("---> "+elementsByTagName.item(i));
+            }
             Node firstCompanyNode = doc.getFirstChild().getFirstChild().getFirstChild();
             System.out.println(firstCompanyNode.getChildNodes().toString());
             if(firstCompanyNode instanceof Element) {
